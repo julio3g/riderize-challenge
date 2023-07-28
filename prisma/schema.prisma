@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(uuid())
+  name     String
+  email    String    @unique
+  password String
+  rides    Ride[]    @relation("RideCreator")
+  bookings Booking[]
+
+  @@map("users")
+}
+
+model Ride {
+  id                      String    @id @default(uuid())
+  name                    String
+  start_date              DateTime
+  start_date_registration DateTime
+  end_date_registration   DateTime
+  additional_information  String?
+  start_place             String
+  participants_limit      Int?
+  creatorId               String
+  creator                 User      @relation("RideCreator", fields: [creatorId], references: [id])
+  bookings                Booking[]
+
+  @@map("rides")
+}
+
+model Booking {
+  id                String   @id @default(uuid())
+  rideId            String
+  userId            String
+  subscription_date DateTime
+  user              User     @relation(fields: [userId], references: [id])
+  ride              Ride     @relation(fields: [rideId], references: [id])
+
+  @@map("bookings")
+}

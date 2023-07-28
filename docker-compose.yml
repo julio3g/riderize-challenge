@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  api-rederize-challenge:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=riderize
+      - POSTGRESQL_PASSWORD=riderize
+      - POSTGRESQL_DATABASE=riderize
