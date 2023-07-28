@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn src/server.ts",
-    "test": "vitest run --dir src/useCases",
-    "test:watch": "vitest --dir src/useCases",
     "build": "tsup src --out-dir build",
-    "lint": "eslint src --fix --ext .ts"
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "lint": "eslint src --fix --ext .ts",
+    "test": "vitest run --dir src/useCases",
+    "test:watch": "vitest --dir src/useCases"
   },
   "keywords": [],
   "author": "",
