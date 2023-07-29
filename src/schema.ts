@@ -5,13 +5,13 @@ export class User {
   @Field(() => ID)
   id!: string
 
-  @Field()
+  @Field(() => String)
   name!: string
 
-  @Field()
+  @Field(() => String)
   email!: string
 
-  @Field()
+  @Field(() => String)
   password!: string
 
   @Field(() => [Ride], { nullable: true })
@@ -26,28 +26,28 @@ export class Ride {
   @Field(() => ID)
   id!: string
 
-  @Field()
+  @Field(() => String)
   name!: string
 
-  @Field()
+  @Field(() => String)
   start_date!: string
 
-  @Field()
+  @Field(() => String)
   start_date_registration!: string
 
-  @Field()
+  @Field(() => String)
   end_date_registration!: string
 
   @Field({ nullable: true })
   additional_information?: string
 
-  @Field()
+  @Field(() => String)
   start_place!: string
 
   @Field(() => Int, { nullable: true })
   participants_limit?: number
 
-  @Field()
+  @Field(() => String)
   creatorId!: string
 
   @Field(() => User)
@@ -62,13 +62,13 @@ export class Booking {
   @Field(() => ID)
   id!: string
 
-  @Field()
+  @Field(() => String)
   rideId!: string
 
-  @Field()
+  @Field(() => String)
   userId!: string
 
-  @Field()
+  @Field(() => String)
   subscription_date!: string
 
   @Field(() => User)
