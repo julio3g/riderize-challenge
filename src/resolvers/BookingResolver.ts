@@ -24,7 +24,10 @@ export class BookingResolver {
 
   @Mutation(() => Booking)
   @Authorized()
-  async createBooking(@Arg('rideId') rideId: string, @Ctx() context: Context) {
+  async createBooking(
+    @Arg('rideId', () => String) rideId: string,
+    @Ctx() context: Context,
+  ) {
     const userId = context.req.user!.userId
     const createBookingUseCase = makeCreateBookingUseCase()
     return await createBookingUseCase.execute({ rideId, userId })
