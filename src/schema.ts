@@ -1,8 +1,8 @@
-import { Field, Int, ObjectType } from 'type-graphql'
+import { Field, ID, Int, ObjectType } from 'type-graphql'
 
 @ObjectType()
 export class User {
-  @Field()
+  @Field(() => ID)
   id!: string
 
   @Field()
@@ -23,7 +23,7 @@ export class User {
 
 @ObjectType()
 export class Ride {
-  @Field()
+  @Field(() => ID)
   id!: string
 
   @Field()
@@ -59,7 +59,7 @@ export class Ride {
 
 @ObjectType()
 export class Booking {
-  @Field()
+  @Field(() => ID)
   id!: string
 
   @Field()
