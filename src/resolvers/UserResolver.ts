@@ -9,9 +9,9 @@ import { makeRegisterUseCase } from '../useCases/factories/makeRegisterUseCase'
 export class UserResolver {
   @Mutation(() => User)
   async createUser(
-    @Arg('name') name: string,
-    @Arg('email') email: string,
-    @Arg('password') password: string,
+    @Arg('name', () => String) name: string,
+    @Arg('email', () => String) email: string,
+    @Arg('password', () => String) password: string,
   ) {
     const registerUseCase = makeRegisterUseCase()
     return await registerUseCase.execute({ name, email, password })
