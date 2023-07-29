@@ -14,10 +14,10 @@ export class User {
   @Field()
   password!: string
 
-  @Field(() => [Ride])
+  @Field(() => [Ride], { nullable: true })
   rides?: Ride[]
 
-  @Field(() => [Booking])
+  @Field(() => [Booking], { nullable: true })
   bookings?: Booking[]
 }
 
@@ -30,13 +30,13 @@ export class Ride {
   name!: string
 
   @Field()
-  start_date!: Date
+  start_date!: string
 
   @Field()
-  start_date_registration!: Date
+  start_date_registration!: string
 
   @Field()
-  end_date_registration!: Date
+  end_date_registration!: string
 
   @Field({ nullable: true })
   additional_information?: string
@@ -53,7 +53,7 @@ export class Ride {
   @Field(() => User)
   creator?: User
 
-  @Field(() => [Booking])
+  @Field(() => [Booking], { nullable: true })
   bookings?: Booking[]
 }
 
@@ -69,7 +69,7 @@ export class Booking {
   userId!: string
 
   @Field()
-  subscription_date!: Date
+  subscription_date!: string
 
   @Field(() => User)
   user?: User
