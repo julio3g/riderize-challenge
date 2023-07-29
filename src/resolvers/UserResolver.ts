@@ -19,8 +19,8 @@ export class UserResolver {
 
   @Mutation(() => String)
   async session(
-    @Arg('email') email: string,
-    @Arg('password') password: string,
+    @Arg('email', () => String) email: string,
+    @Arg('password', () => String) password: string,
   ) {
     const authenticateUseCase = makeAuthenticateUseCase()
     const user = await authenticateUseCase.execute({ email, password })
