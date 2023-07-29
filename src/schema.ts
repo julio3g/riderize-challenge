@@ -38,7 +38,7 @@ export class Ride {
   @Field(() => String)
   end_date_registration!: string
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   additional_information?: string
 
   @Field(() => String)
