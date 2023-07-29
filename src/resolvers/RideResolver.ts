@@ -25,7 +25,7 @@ export class RideResolver {
 
   @Mutation(() => Ride)
   async createRide(
-    @Arg('name') name: string,
+    @Arg('name', () => String) name: string,
     @Arg('startDate', () => String) start_date: string,
     @Arg('startDateRegistration', () => String) start_date_registration: string,
     @Arg('endDateRegistration', () => String) end_date_registration: string,
